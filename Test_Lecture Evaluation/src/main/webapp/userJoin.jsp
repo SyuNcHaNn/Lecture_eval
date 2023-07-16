@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import="java.io.PrintWriter"%>
-	
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="user.UserDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,23 +19,6 @@
 
 <body>
 
-<%
-	String userID = null;
-
-	if(session.getAttribute("userID") != null) {
-		userID = (String) session.getAttribute("userID");
-	}
-
-	if(userID != null) {
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인이 된 상태입니다.');");
-		script.println("location.href = 'index.jsp'");
-		script.println("</script>");
-		script.close();	
-	}
-%>	
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 		<a class="navbar-brand" href="index.jsp">강의평가</a>
@@ -45,23 +30,13 @@
 
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link"
-					href="index.jsp">메인</a></li>
+				<li class="nav-item"><a class="nav-link" href="index.jsp">메인</a></li>
 				<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">회원 관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<%
-							if(userID == null) {
-						%>
 						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
-						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
-						<%
-							} else {
-						%>
+						<a class="dropdown-item active" href="userJoin.jsp">회원가입</a>
 						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
-						<%
-							}
-						%>
 					</div>
 				</li>
 			</ul>
@@ -74,7 +49,7 @@
 	</nav>
 	
 	<div class="container mt-3" style="max-width: 560px;">
-		<form method="post" action="./userLoginAction.jsp">
+		<form method="post" action="./userRegisterAction.jsp">
 			<div class="form-group">
 				<label>아이디</label>
 				<input type="text" name="userID" class="form-control">
@@ -83,7 +58,7 @@
 				<label>비밀번호</label>
 				<input type="password" name="userPassword" class="form-control">
 			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
+			<button type="submit" class="btn btn-primary">회원가입</button>
 		</form>
 	</div>
 	

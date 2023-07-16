@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="user.UserDAO" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>강의평가</title>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- 부트스트랩 CSS 추가 -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -19,7 +19,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-		<a class="navbar-brand" href="index.jsp">강의평가 사이트</a>
+		<a class="navbar-brand" href="index.jsp">강의평가</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbar">
@@ -32,9 +32,7 @@
 				<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">회원 관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
-						<a class="dropdown-item" href="userRegister.jsp">회원가입</a>
-						<a class="dropdown-item" href="#">로그아웃</a>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 					</div>
 				</li>
 			</ul>
@@ -46,23 +44,11 @@
 		</div>
 	</nav>
 	
-	<div class="container mt-3" style="max-width: 560px;">
-		<form method="post" action="./userLoginAction.jsp">
-			<div class="form-group">
-				<label>아이디</label>
-				<input type="text" name="userID" class="form-control">
-			</div>
-			<div class="form-group">
-				<label>비밀번호</label>
-				<input type="password" name="userPassword" class="form-control">
-			</div>
-			<div class="form-group">
-				<label>이메일</label>
-				<input type="email" name="userEmail" class="form-control">
-			</div>
-			<button type="submit" class="btn btn-primary">회원가입</button>
-		</form>
-	</div>
+	<section class="container mt-3" style="max-width: 560px;">
+		<div class="alert alert-success mt-4" role="alert">
+			회원가입이 완료되었습니다.
+		</div>
+	</section>
 	
 	<footer class="bg-dark mt-4 p-5 text-center" style="color:#FFFFFF;">
 		Copyright ⓒ "안양야스킹" All Rights Reserved.
